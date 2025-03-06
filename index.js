@@ -11,7 +11,13 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Calc Appp Listening On Port:${port}`)
+  const logTime = () => new Date().toLocaleString()
+  const clearLog = () => process.stdout.write('\x1Bc')
+
+  clearLog()
+
+  console.log(`Calc Appp Listening \nOn Port:${port}`)
+  console.log(logTime())
 })
 
 

@@ -3,9 +3,32 @@
 console.log("MAIN.JS running")
 
 let sum = undefined
-let userInput = undefined
+let userInput = ""
 let display = ""
 let displayOperator = ""
+
+
+function ops(){
+  
+  const nums = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+  nums.map((value, key) => {
+
+    let i = key
+    let num = value
+
+    const button = document.getElementById(num)
+
+    button.addEventListener('click', () => {
+      userInput = `${userInput}${i}`
+    })
+
+    alert(i)
+    console.log(`key:${key} | value:${valur}`)
+  })
+}
+
+ops()
 
 /*const button = document.getElementById("three")
 button.addEventListener('click', () => {
