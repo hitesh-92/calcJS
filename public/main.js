@@ -8,11 +8,17 @@ let display = ""
 let displayOperator = ""
 
 
-function ops(){
+function setUpCalc(){
+
+  console.log("ANON!")
   
   const nums = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
   nums.map((value, key) => {
+
+    if (key==0){
+      
+    }
 
     let i = key
     let num = value
@@ -21,28 +27,21 @@ function ops(){
 
     button.addEventListener('click', () => {
       userInput = `${userInput}${i}`
+      console.log(`key:${key} | value:${value}`)
+
     })
 
-    alert(i)
-    console.log(`key:${key} | value:${valur}`)
+    
   })
-}
 
-ops()
+};
 
-/*const button = document.getElementById("three")
-button.addEventListener('click', () => {
-  console.log("THEEEE")
-  alert("pressed Three")
-  calc()
-})
-*/
+setUpCalc()
+
 
 function calc(user_operator, firstInput, secondInput){
 
   const operator = user_selected_operation(user_operator)
-
-  //ocument.getElementById("display").innerHTML = "HITESH"
 
   const result = 0
 
