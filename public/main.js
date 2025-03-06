@@ -8,17 +8,16 @@ let display = ""
 let displayOperator = ""
 
 
+
 function setUpCalc(){
 
-  console.log("ANON!")
+  console.log("ANON FUNC !")
+  const userInputDisplay = document.getElementById("userInput")
   
   const nums = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
 
   nums.map((value, key) => {
 
-    if (key==0){
-      
-    }
 
     let i = key
     let num = value
@@ -26,8 +25,13 @@ function setUpCalc(){
     const button = document.getElementById(num)
 
     button.addEventListener('click', () => {
-      userInput = `${userInput}${i}`
-      console.log(`key:${key} | value:${value}`)
+
+      userInput += `${i}`
+
+      console.log(`KEY PRESSED: key:${key} | value:${value}`)
+      
+      const newDisplayText = document.createTextNode(userInput);
+      userInputDisplay.appendChild(newDisplayText);
 
     })
 
@@ -35,7 +39,6 @@ function setUpCalc(){
   })
 
 };
-
 setUpCalc()
 
 
@@ -81,5 +84,20 @@ function resetInputs({userInput, displayOperator, sum, display}){
   resetOperator()
   resetSum()
   resetDisplay()
+
+}
+
+function updateResultsDisplay(number, clearDisplay){
+
+  const resultsDisplay = document.getElementById("display")
+
+  if (clearDisplay){
+
+    const newDisplayText = document.createTextNode(userInput);
+    userInputDisplay.appendChild(newDisplayText);
+
+    
+
+  }
 
 }
