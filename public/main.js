@@ -18,25 +18,23 @@ function setUpCalc(){
 
   nums.map((value, key) => {
 
-
     let i = key
     let num = value
 
     const button = document.getElementById(num)
 
     button.addEventListener('click', () => {
-
-      userInput += `${i}`
+      
+      userInput = String(i)
 
       console.log(`KEY PRESSED: key:${key} | value:${value}`)
       
       const newDisplayText = document.createTextNode(userInput);
       userInputDisplay.appendChild(newDisplayText);
 
-    })
-
+    });
     
-  })
+  });
 
 };
 setUpCalc()
@@ -96,7 +94,7 @@ function updateResultsDisplay(number, clearDisplay){
     const newDisplayText = document.createTextNode(userInput);
     userInputDisplay.appendChild(newDisplayText);
 
-    
+  } else {
 
   }
 
