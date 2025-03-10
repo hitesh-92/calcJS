@@ -2,10 +2,12 @@
 
 console.log("MAIN.JS running")
 
+
 let sum = ""
 let display = ""
 let displayOperator = ""
 let userInput = ""
+
 
 function setUpCalcNums(){
 
@@ -62,6 +64,7 @@ function setUpCalcNums(){
 
 }
 
+
 function setUpOperators(){
 
   const buttonIds = [
@@ -86,15 +89,27 @@ function setUpOperators(){
       const hasSelectedOperator = buttonIds.includes(value)
 
       const userInputIsEmpty = userInputElement.innerText == ""
+      const previousResultExists = sumElement.innerText != ""
       const firstNumberSelected = userInputElement.innerText != "" & hasSelectedOperator
 
 
-      if ( userInputIsEmpty ){
+      if ( previousResultExists ){
+
+        const sumHasValue = sumElement.innerText != ""
+
+        if (sumHasValue){
+          operatorElement.innerText = element.innerText
+        }
+
+        
+
+      } else if (userInputIsEmpty){
 
         //if no number selected, do nothing
         return
 
-      } else if (firstNumberSelected){
+      }
+      else if (firstNumberSelected){
         console.log(`ADD OPERATOR`)
         //if: has userInput & selected operator
 
@@ -112,6 +127,7 @@ function setUpOperators(){
   })
 
 }
+
 
 function setUpEqualsButton(){
 
@@ -133,6 +149,13 @@ function setUpEqualsButton(){
 
   })
 
+}
+
+
+function setUpClearButton(){
+  document.getElementById("clear").addEventListener('click', () => {
+    resetAll()
+  })
 }
 
 
@@ -174,24 +197,8 @@ function resetAll(){
 }
 
 
-function updateResultsDisplay(number, clearDisplay){
-
-  const resultsDisplay = document.getElementById("display")
-
-  x = "This is just come text I'm writing and I don't think this will work out because the how does this even make sense??" 
-
-  if (clearDisplay){
-
-    const newDisplayText = document.createTextNode(userInput);
-    userInputDisplay.appendChild(newDisplayText);
-
-  } else {
-
-  }
-
-}
-
-
 setUpCalcNums()
 setUpOperators()
 setUpEqualsButton()
+setUpClearButton()
+
