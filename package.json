@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@netlify/functions": "^3.0.1",
     "@types/express": "^5.0.0",

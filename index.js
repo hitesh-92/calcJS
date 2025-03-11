@@ -1,8 +1,18 @@
-const express = require('express')
+/*const express = require('express')
 const app = express() 
 const path = require('path')
-const port = process.env.port || 8080
+const port = process.env.port || 8080*/
 
+import express from "express"
+import path from "path"
+import { fileURLToPath } from "url"
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const app = express()
+const port = process.env.PORT || 8080
+
+app.use(express.json())
 app.use(express.static('public'))
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
@@ -10,14 +20,6 @@ app.get('/', (req, res) => {
   res.send("index.html")
 })
 
-app.listen(port, () => {
-  const logTime = () => new Date().toLocaleString()
-  const clearLog = () => process.stdout.write('\x1Bc')
-
-  clearLog()
-
-  console.log(`Calc Appp Listening \nOn Port:${port}`)
-  console.log(logTime())
-})
+export default app
 
 
